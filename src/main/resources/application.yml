@@ -1,0 +1,11 @@
+server:
+   port: 8080
+   servlet:
+      context-path: /app
+logging:
+   level:
+      root: TRACE
+      com.auth: TRACE
+      org.springframework.web: TRACE
+      org.springframework.security: TRACE
+ 
