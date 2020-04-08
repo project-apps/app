@@ -14,9 +14,9 @@
                         <!-- Social Line -->
                         <div class="social-line"> 
                            <a href="${pageContext.request.contextPath}/login/oauth2/facebook" class="ssoSignup"><i class="fa fa-facebook"></i></a> 
-	                        <a href="${pageContext.request.contextPath}/login/oauth2/google" class="ssoSignup"><i class="fa fa-google-plus"></i></a> 
-	                        <a href="${pageContext.request.contextPath}/login/oauth2/twitter" class="ssoSignup"><i class="fa fa-twitter"></i></a>
-	                        <a href="${pageContext.request.contextPath}/login/oauth2/github" target="_blank" class="ssoSignup"><i class="fa fa-github"></i></a>
+	                       <a href="${pageContext.request.contextPath}/login/oauth2/google" class="ssoSignup"><i class="fa fa-google-plus"></i></a> 
+	                       <a href="${pageContext.request.contextPath}/login/oauth2/twitter" class="ssoSignup"><i class="fa fa-twitter"></i></a>
+	                       <a href="http://localhost:8000/oauth2/authorization/github" class="ssoSignup"><i class="fa fa-github"></i></a>
                         </div>
                     </div>
                     <div class="row">

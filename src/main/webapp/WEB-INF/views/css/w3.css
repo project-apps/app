@@ -140,7 +140,7 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
 
 
 @media  screen and (max-width: 767px) and (min-width: 576px){
-  #myModal{margin-left:20%;
+  #appModal{margin-left:20%;
             margin-right:20%;}
 
   #forgot-password{margin-left:20%;
@@ -150,7 +150,7 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
 
 @media screen and (min-width: 768px) {
     
-    #myModal .modal-dialog  {width:500px;}
+    #appModal .modal-dialog  {width:500px;}
   
   #forgot-password .modal-dialog{width:500px;}
   

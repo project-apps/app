@@ -22,6 +22,7 @@ public class AbstractGenericController {
 	
 	protected static final String USER_API_URL = "url.service.auth";
 	protected static final String API_GATEWAY_URL = "url.api.gateway";
+	protected static final String SOCIAL_AUTHSERVICE = "url.authservice.social";
 	
 	public String getPropValue(String key) throws IOException {
 		Properties props = new Properties();

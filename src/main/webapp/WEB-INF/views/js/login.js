@@ -1,25 +1,18 @@
 /**
  * 
  */
+var popupWindow;
 $('.ssoLogin').click(function(e){
-		e.preventDefault();
-		$.ajax({
-			url: $(this).attr('href'),
-			type: 'get',
-		}).done(function(data) {
-			if(data.status=="OK"){
-				loginSuccess(data);
-				$('#appModal').modal('hide');
-			}else{
-				$('#errorSpan').empty().append(data.value).css('visibility','visible');
-			}
-		}).fail(function(data){
-			alert(JSON.stringify(data));
-		});
+	e.preventDefault();
+	$.ajax({
+		url:$(this).attr('href'),
+	}).done(function(response){
+		popupWindow = window.open(response, "popupWindow", "width=600,height=600,scrollbars=yes");
+		//$('#modal').empty().html(response);
+		$('#appModal').modal('hide');
+	}).fail(function(data){
+		console.log(data);
+		$('#errorSpan').empty().append(data).css('visibility','visible');
 	});
 	
-	var loginSuccess = (data)=>{
-		$('#loginModal').closest('li').addClass('hide');
-		$('.user-toogle').removeClass('hide');
-		$('li.user-toogle > a.dropdown-toggle').html(data.value.firstName+'&nbsp'+data.value.lastName);
-	}
+});

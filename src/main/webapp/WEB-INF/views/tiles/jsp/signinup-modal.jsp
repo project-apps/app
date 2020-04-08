@@ -1,9 +1,8 @@
 <%@ page session="true"%> <%@ page isELIgnored="false"%>
 <body>
 <!-- ------- LOGIN ------- -->
-<div>
 <!-- Modal -->
-<div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bs-modal-sm log-sign" id="appModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
         
@@ -85,7 +84,7 @@
             <a href="${pageContext.request.contextPath}/login/oauth2/facebook" class="ssoLogin"><i class="fa fa-facebook"></i></a> 
             <a href="${pageContext.request.contextPath}/login/oauth2/google" class="ssoLogin"><i class="fa fa-google-plus"></i></a> 
             <a href="${pageContext.request.contextPath}/login/oauth2/twitter" class="ssoLogin"><i class="fa fa-twitter"></i></a>
-            <a href="${pageContext.request.contextPath}/login/oauth2/github" class="ssoLogin"><i class="fa fa-github"></i></a> 
+            <a href="${pageContext.request.contextPath}/login/oauth2/github" class="ssoLogin" data-toggle="modal"><i class="fa fa-github"></i></a> 
 </div>
       </div>
     </div>
@@ -132,7 +131,7 @@
     
   </div>
 </div>
-</div>
 <!-- ------- LOGIN Ends ------- -->
 <script src="${pageContext.request.contextPath}/views/js/app.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
 </body>

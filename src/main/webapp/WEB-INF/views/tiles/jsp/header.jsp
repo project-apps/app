@@ -8,7 +8,6 @@
 }
 </style>
 	</head>
-
 <!-- Header -->
 	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 		<div class="container">
@@ -19,7 +18,8 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/app/home" style="font-size: 22px;"><span class="label label-success">My Application</span></a>
+				<a class="navbar-brand" href="/app/home" style="font-size: 22px;">
+				<span class="label label-success">My Application</span></a>
 			</div>
 			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 				<form class="navbar-form navbar-right" role="search" action="search" method="GET">
@@ -32,7 +32,7 @@
 <c:choose>
 	<c:when test="${sessionScope.user ne null}">
     <li class="dropdown user-toogle"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    	${sessionScope.user.firstName } ${sessionScope.user.lastName}</a>
+    	${sessionScope.user.name}</a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">
             <li><a href="">Profile</a></li>
             <li><a href="<c:url value="/user/logout"  />">Logout</a></li>
@@ -40,8 +40,7 @@
     </li>
 	</c:when>
 	<c:otherwise>
-    <li><a href="${pageContext.request.contextPath}/user/signinup" id="signinupModal" data-toggle="modal" 
-    		data-target=".log-sign">SignIn|SignUp</a></li>
+    <li><a href="${pageContext.request.contextPath}/user/signinup" id="signinupModal" data-toggle="modal" data-target=".log-sign">SignIn|SignUp</a></li>
    <!-- <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Sign In/Register</button> -->
     <li class="dropdown user-toogle hide"><a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">

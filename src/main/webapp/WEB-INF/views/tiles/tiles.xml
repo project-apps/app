@@ -20,5 +20,11 @@
     </definition>
     <definition name="signinup" extends="empty.definition">  
         <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/signinup-modal.jsp" />  
+    </definition>
+    <definition name="ssoLoginModal" extends="empty.definition">  
+        <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/ssoLoginModal.jsp" />  
+    </definition> 
+        <definition name="closeSSOLoginWindow" extends="empty.definition">  
+        <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/closeSSOLoginWindow.jsp" />  
     </definition>  
 </tiles-definitions>  

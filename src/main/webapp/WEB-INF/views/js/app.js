@@ -18,7 +18,7 @@ if (!jQuery) {throw new TypeError("jQuery is required.");};
 			url:$(this).attr('href'),
 		}).done(function(response){
 			$('#modal').empty().html(response);
-			$('#myModal').modal('show');
+			$('#appModal').modal('show');
 		}).fail(function(data){
 			console.log(data);
 		});

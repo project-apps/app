@@ -12,7 +12,7 @@
 <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/views/font-awesome/css/fontawesome.min.css" /> --%>
  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href="${pageContext.request.contextPath}/views/css/w3.css" rel="stylesheet" id="modal-css">
-</head>    
+</head>  
 <body>    
     <div>
     	<tiles:insertAttribute name="header" />
