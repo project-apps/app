@@ -9,12 +9,7 @@
 <script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
 <script type="text/javascript">
 var userName = "<c:out value='${userName}'/>";
-var opener = window.opener;
-if(opener){
-	opener.$('#signinupModal').closest('li').addClass('hide');
-	opener.$('.user-toogle').removeClass('hide');
-	opener.$('li.user-toogle > a.dropdown-toggle').html(userName);
-}
+loginSuccess(userName, 'social');
 window.close();
 </script>
 </head>

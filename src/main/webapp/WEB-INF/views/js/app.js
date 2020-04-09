@@ -23,32 +23,6 @@ if (!jQuery) {throw new TypeError("jQuery is required.");};
 			console.log(data);
 		});
 	});
-
-/*	$('#loginForm').submit(function(e){
-		e.preventDefault();
-		var formData = {}
-		$.each(this, function(i, v){
-			var input = $(v);
-			formData[input.attr("name")] = input.val();
-		});
-		$.ajax({
-			url: $(this).attr('action'),
-			type: $(this).attr('method'),
-			contentType: "application/json; charset=utf-8",
-			dataType: 'json',
-			data: JSON.stringify(formData),
-		}).done(function(data) {
-			if(data.status=="OK"){
-				loginSuccess(data);
-				$('#appModal').modal('hide');
-			}else{
-				$('#errorSpan').empty().append(data.value).css('visibility','visible');
-			}
-		}).fail(function(data){
-			alert(JSON.stringify(data));
-		});
-	});
-	*/
 })(jQuery, window, document);
 
 $(window, document, undefined).ready(function() {

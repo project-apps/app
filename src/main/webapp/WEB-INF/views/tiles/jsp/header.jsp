@@ -30,12 +30,12 @@
 				</form>
 <ul id="nav" class="nav navbar-nav nav-pills clearfix right" role="tablist">
 <c:choose>
-	<c:when test="${sessionScope.user ne null}">
+	<c:when test="${sessionScope.authuser ne null}">
     <li class="dropdown user-toogle"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    	${sessionScope.user.name}</a>
+    	${sessionScope.authuser.name}</a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">
             <li><a href="">Profile</a></li>
-            <li><a href="<c:url value="/user/logout"  />">Logout</a></li>
+            <li><a href="<c:url value="/logout"  />">Logout</a></li>
         </ul>
     </li>
 	</c:when>
@@ -45,7 +45,7 @@
     <li class="dropdown user-toogle hide"><a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">
             <li><a href="">Profile</a></li>
-            <li><a href="<c:url value="/user/logout"  />">Logout</a></li>
+            <li><a href="<c:url value="/logout"  />">Logout</a></li>
         </ul>
     </li>
 	</c:otherwise>
