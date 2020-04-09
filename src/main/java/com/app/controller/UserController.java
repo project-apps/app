@@ -48,15 +48,13 @@ public class UserController extends AbstractGenericController {
 	@GetMapping(path = { "/signup" })
 	public ModelAndView showSignupForm(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
-
 		mv.addObject(new UserDto());
 		mv.setViewName("signup");
 		return mv;
 	}
 
-	@PostMapping(path = { "/signup" })
-	public HttpEntity<?> addUser(@ModelAttribute("user") @Validated UserDto user) throws URISyntaxException {
-
+	@PostMapping
+	public HttpEntity<?> addUser(@RequestBody UserDto user) throws URISyntaxException {
 		HttpEntity<?> responseEntity = ResponseEntity.EMPTY;
 		try {
 			responseEntity = restTemplate.postForEntity(getPropValue("url.service.user"), user, UserDto.class);

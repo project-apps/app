@@ -8,17 +8,17 @@ if (!jQuery) {throw new TypeError("jQuery is required.");};
 			url:$(this).attr('href'),
 		}).done(function(response){
 			$('#modal').empty().html(response);
-			$('#appModal').modal('show');
+			$('#signinupModal').modal('show');
 		});
 	});
 */
-	$('#signinupModal').click(function(e){
+	$('#signinupModalGen').click(function(e){
 		e.preventDefault();
 		$.ajax({
 			url:$(this).attr('href'),
 		}).done(function(response){
 			$('#modal').empty().html(response);
-			$('#appModal').modal('show');
+			$('#signinupModal').modal('show');
 		}).fail(function(data){
 			console.log(data);
 		});

@@ -15,6 +15,8 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.app.entity.dto.AppProperties;
+
 @Controller
 @RequestMapping(path="/")
 public class HomeController extends AbstractGenericController {
@@ -47,7 +49,7 @@ public class HomeController extends AbstractGenericController {
 			ex.printStackTrace();
 		}
 		finally {
-			session.removeAttribute("user");
+			session.removeAttribute(AppProperties.AUTH_USER.value());
 			session.invalidate();
 		}
 		return new ModelAndView("home");

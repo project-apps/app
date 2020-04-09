@@ -8,9 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.parser.Base64Parser;
 import org.parser.model.AuthUser;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,10 +28,11 @@ import com.app.entity.dto.UserDto;
 @RestController
 @RequestMapping("/login")
 public class LoginController extends AbstractGenericController {
+	
 	@GetMapping(path = { "/oauth2/{provider}" })
 	public String getLoginURL(@PathVariable(required = true) String provider, @RequestBody(required = false) UserDto user) {
 		StringBuffer targetUrl = new StringBuffer();
-		try { 
+		try {
 			targetUrl.append(getPropValue(SOCIAL_AUTHSERVICE)).append(provider);
 		} catch (IOException e) { logger.error(e.getMessage()); }
 		return targetUrl.toString();
@@ -46,12 +44,12 @@ public class LoginController extends AbstractGenericController {
 		AuthUser user = Base64Parser.deserialize(encUser, AuthUser.class);
 		session.setAttribute(AppProperties.AUTH_USER.value(), user);
 		logger.trace("Parsed user: "+user);
-		mv.addObject("userName", user.getName());
+		mv.addObject(AppProperties.AUTH_USER_FIST_LAST_NAME.value(), user.getName());
 		mv.setViewName("closeSSOLoginWindow");
 		return mv;
 
 	}
-	@PostMapping(path = { "/" }, consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_HTML_VALUE })
+	@PostMapping
 	public JSONResponse login(@RequestBody UserDto user, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
 		JSONResponse jsonResponse = new JSONResponse();

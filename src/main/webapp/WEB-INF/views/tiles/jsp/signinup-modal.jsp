@@ -2,9 +2,12 @@
 <body>
 <!-- ------- LOGIN ------- -->
 <!-- Modal -->
-<div class="modal fade bs-modal-sm log-sign" id="appModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<div class="modal fade bs-modal-sm log-sign" id="signinupModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
+	  <!--   <div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	     </div> -->
     	<div class="bs-example bs-example-tabs">
             <ul id="myTab" class="nav nav-tabs">
               <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
@@ -14,7 +17,8 @@
       <div class="modal-body">
 		<div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="signin">
-            <form class="form-horizontal">
+            <form name="loginForm" id="loginForm" action="login" method="POST" class="form-horizontal">
+<span class="errorSpan" style="color: red; visibility: hidden;" ></span>
             <fieldset>
                <div class="group">
 <input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
@@ -23,7 +27,7 @@
             <div class="group">
 <input required="required" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Password</label>
-    </div>
+    		</div>
 <em>minimum 6 characters</em>
 		<div class="forgot-link">
 			<a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
@@ -39,7 +43,8 @@
         </div>
 <!-- ------- SINGUP ------- -->
 		<div class="tab-pane fade" id="signup">
-			<form class="form-horizontal">
+			<form name="signupForm" id="signupForm" action="user" method="POST" class="form-horizontal">
+<span class="errorSpan" style="color: red; visibility: hidden;" ></span>
             	<fieldset>
             		<div class="group">
 <input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
@@ -54,7 +59,10 @@
             		<div class="group">
 <input required="required" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Password</label></div>
-              <em>1-8 Characters</em>
+    <em>1-8 Characters</em>
+    				<div class="group">
+<input required="required" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+    <label class="label" for="date">Confirm Password</label></div>
             		<div class="control-group">
 <label class="control-label" for="confirmsignup"></label>
 						<div class="controls">
@@ -80,11 +88,7 @@
     </div>
   </div>
 </div>
-  
-   
-
 <!--modal2-->
-
 <div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">

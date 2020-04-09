@@ -35,27 +35,26 @@
     	${sessionScope.authuser.name}</a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">
             <li><a href="">Profile</a></li>
-            <li><a href="<c:url value="/logout"  />">Logout</a></li>
+            <li><a href="<c:url value="/logout"/>">Logout</a></li>
         </ul>
     </li>
 	</c:when>
 	<c:otherwise>
-    <li><a href="${pageContext.request.contextPath}/user/signinup" id="signinupModal" data-toggle="modal" data-target=".log-sign">SignIn|SignUp</a></li>
+    <li><a href="${pageContext.request.contextPath}/user/signinup" id="signinupModalGen" data-toggle="modal" >SignIn|SignUp</a></li>
    <!-- <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Sign In/Register</button> -->
     <li class="dropdown user-toogle hide"><a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
 	<ul id="products-menu" class="dropdown-menu clearfix" role="menu">
-            <li><a href="">Profile</a></li>
-            <li><a href="<c:url value="/logout"  />">Logout</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="<c:url value="/logout"/>">Logout</a></li>
         </ul>
     </li>
 	</c:otherwise>
 </c:choose>
 </ul>
-							
-				<ul class="nav navbar-nav">
-					<li><a href="https://w3lessons.info/about">About</a></li>
-					<li><a href="https://w3lessons.info/contact">Contact</a></li>
-				</ul>
+<ul class="nav navbar-nav">
+	<li><a href="https://w3lessons.info/about">About</a></li>
+	<li><a href="https://w3lessons.info/contact">Contact</a></li>
+</ul>
 			</nav>
 		</div>
 	</header>
