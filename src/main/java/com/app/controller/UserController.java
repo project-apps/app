@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.parser.model.AuthUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -28,6 +29,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.app.config.MessageConverter;
+import com.app.entity.dto.AppProperties;
 import com.app.entity.dto.JSONResponse;
 import com.app.entity.dto.UserDto;
 
@@ -54,10 +56,25 @@ public class UserController extends AbstractGenericController {
 	}
 
 	@PostMapping
-	public HttpEntity<?> addUser(@RequestBody UserDto user) throws URISyntaxException {
-		HttpEntity<?> responseEntity = ResponseEntity.EMPTY;
+	public JSONResponse addUser(@RequestBody AuthUser user, HttpServletResponse response, HttpSession session) throws URISyntaxException {
+		JSONResponse jsonResponse = new JSONResponse();
 		try {
-			responseEntity = restTemplate.postForEntity(getPropValue("url.service.user"), user, UserDto.class);
+			String targetUrl =  new StringBuffer(getPropValue(API_GATEWAY_HOST)).append("/userservice/user").toString();
+			ResponseEntity<AuthUser> responseEntity = restTemplate.postForEntity(targetUrl, user, AuthUser.class);
+			logger.debug("Ressponse from user-authentication:\n \t ResponseEntity:\n\t\t StatsCode: "
+					+ responseEntity.getStatusCodeValue());
+			if (responseEntity.getStatusCode() == HttpStatus.CREATED) {
+				String jwtToken = responseEntity.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+				jsonResponse.setStatus(responseEntity.getStatusCode());
+				response.setHeader(HttpHeaders.AUTHORIZATION, jwtToken);
+				user = responseEntity.getBody();
+				user.setName(user.getFirstName()+" "+user.getLastName());
+				jsonResponse.setValue(user);
+				session.setAttribute(AppProperties.AUTH_USER.value(), user);
+			} else {
+				logger.info("Response received: " + responseEntity);
+				jsonResponse.setValue("Unable to add user!");
+			}
 		} catch (HttpClientErrorException httpEx) {
 			httpEx.printStackTrace();
 		} catch (Exception ex) {
@@ -65,8 +82,10 @@ public class UserController extends AbstractGenericController {
 				logger.error(ex.getMessage());
 			}
 			ex.printStackTrace();
+			logger.error(ex.getMessage());
+			jsonResponse.setValue("Some error occured, please try after sometime.");
 		}
-		return responseEntity;
+		return jsonResponse;
 	}
 
 	public String getDefaultRole() throws Exception {

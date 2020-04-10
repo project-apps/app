@@ -8,8 +8,8 @@
 <script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
 <script type="text/javascript">
-var authUserFrstLastName = "<c:out value='${authUserFrstLastName}'/>";
-loginSuccess(authUserFrstLastName, 'social');
+var authUserFirstLastName = "<c:out value='${authUserFirstLastName}'/>";
+loginSuccess(authUserFirstLastName, 'social');
 window.close();
 </script>
 </head>

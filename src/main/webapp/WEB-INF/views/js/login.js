@@ -34,7 +34,7 @@ $('#loginForm').submit(function(e){
 		data: JSON.stringify(formData),
 	}).done(function(data) {
 		if(data.status=="OK"){
-			loginSuccess(data);
+			loginSuccess(data.value.name);
 			$('#signinupModal').modal('hide');
 		}else{
 			_this.closest('form').find('.errorSpan').empty().append(data.value).css('visibility','visible');
@@ -58,8 +58,8 @@ $('#signupForm').submit(function(e){
 		dataType: 'json',
 		data: JSON.stringify(formData),
 	}).done(function(data) {
-		if(data.status=="OK"){
-			loginSuccess(data);
+		if(data.status=="CREATED"){
+			loginSuccess(data.value.name);
 			$('#signinupModal').modal('hide');
 		}else{
 			_this.closest('form').find('.errorSpan').empty().append(data.value).css('visibility','visible');
@@ -68,18 +68,18 @@ $('#signupForm').submit(function(e){
 		_this.closest('form').find('.errorSpan').empty().append(JSON.stringify(data)).css('visibility','visible');
 	});
 });
-var loginSuccess = (authUserFrstLastName, source)=>{
+var loginSuccess = (authUserFirstLastName, source)=>{
 	if(source=='social'){
 		var opener = window.opener;
 		if(opener){
 			opener.$('#signinupModalGen').closest('li').addClass('hide');
 			opener.$('.user-toogle').removeClass('hide');
-			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);
+			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);
 		}
 	}else{
 		$('#signinupModalGen').closest('li').addClass('hide');
 		$('.user-toogle').removeClass('hide');
-		$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);		
+		$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);		
 	}
 	
 }

@@ -21,11 +21,11 @@
 <span class="errorSpan" style="color: red; visibility: hidden;" ></span>
             <fieldset>
                <div class="group">
-<input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="text" name="username"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Email address</label></div>
             <!-- Password input-->
             <div class="group">
-<input required="required" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="password" name="password"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Password</label>
     		</div>
 <em>minimum 6 characters</em>
@@ -47,17 +47,17 @@
 <span class="errorSpan" style="color: red; visibility: hidden;" ></span>
             	<fieldset>
             		<div class="group">
-<input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="text" name="firstName"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">First Name</label>
     				</div>
       				<div class="group">
-<input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="text" name="lastName"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Last Name</label></div>
             		<div class="group">
-<input required="required" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="text" name="email"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Email</label></div>
             		<div class="group">
-<input required="required" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
+<input required="required" class="input" type="password" name="password"><span class="highlight"></span><span class="bar"></span>
     <label class="label" for="date">Password</label></div>
     <em>1-8 Characters</em>
     				<div class="group">

@@ -1,6 +1,6 @@
 package com.app.entity.dto;
 
-public class UserDto {
+public class UserDto{
 	private String id;
 	private String firstName;
 	private String lastName;
