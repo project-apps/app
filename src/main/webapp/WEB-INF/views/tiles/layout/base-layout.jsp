@@ -6,33 +6,66 @@
 "http://www.w3.org/TR/html4/loose.dtd">    
 <html lang="en">    
 <head>    
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 <title><tiles:insertAttribute name="title" ignore="true" /></title> 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/views/bootstrap/3.3.7/css/bootstrap.min.css" />
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/views/font-awesome/css/fontawesome.min.css" /> --%>
- <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="${pageContext.request.contextPath}/views/css/w3.css" rel="stylesheet" id="modal-css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/views/css/app.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 </head>  
-<body>    
-    <div>
-    	<tiles:insertAttribute name="header" />
-    </div>  
-    	<div class="container">
-			<div class="row">  
-				<div style="float:left;padding:10px;width:100%;">    
-       			 	<tiles:insertAttribute name="body" />
-       			 </div> 
-        	</div>
-        </div>
-     <div id="modal">
-	 </div>   
-     <div style="clear:both">
-     	<tiles:insertAttribute name="footer" />
-     </div>    
-	    	
-    <script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
-	<script	src="${pageContext.request.contextPath}/views/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/views/js/app.js" type="text/javascript"></script>
-	<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
+<body>
+	<div class="jumbotron jumbotron-fluid mb-0">
+		<div class="container">
+    		<tiles:insertAttribute name="header" />
+    	</div>
+	</div>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 sticky-top">
+		<div class="container-fluid">
+			<tiles:insertAttribute name="topMenu" />
+		</div>
+	</nav> 
+	
+	<%-- <div class="container-fluid">
+		<div class="wrapper">
+			<tiles:insertAttribute name="leftMenu"/>
+		</div>
+		<div class="container">
+			<div id="content">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+	</div> --%>
+	<div class="container-fluid">		
+		<div class="wrapper d-flex">
+				<nav id="sidebar">
+					<tiles:insertAttribute name="leftMenu"/>
+				</nav>
+				<div class="container">
+				<div id="content">
+					<tiles:insertAttribute name="body" />
+				</div>
+			</div>
+	    </div>
+    </div>
+	<div id="modal"></div>  
+	 
+	<div style="clear:both">
+		<tiles:insertAttribute name="footer" />
+	</div>    
+	   
+<div class="alert text-center cookiealert" role="alert">
+    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+    <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+        I agree
+    </button>
+</div> 	
+<script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/js/app.js" type="text/javascript"></script>
+<%-- <script src="${pageContext.request.contextPath}/views/js/main.js" type="text/javascript"></script> --%>
+<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 </body>    
 </html>    

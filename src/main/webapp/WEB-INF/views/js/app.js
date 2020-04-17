@@ -8,21 +8,26 @@ if (!jQuery) {throw new TypeError("jQuery is required.");};
 			url:$(this).attr('href'),
 		}).done(function(response){
 			$('#modal').empty().html(response);
-			$('#signinupModal').modal('show');
+			$('#loginRegModal').modal('show');
 		});
 	});
 */
-	$('#signinupModalGen').click(function(e){
+	$('#logginRegModalGenerator').click(function(e){
 		e.preventDefault();
 		$.ajax({
 			url:$(this).attr('href'),
 		}).done(function(response){
 			$('#modal').empty().html(response);
-			$('#signinupModal').modal('show');
+			$('#loginRegModal').modal('show');
 		}).fail(function(data){
 			console.log(data);
 		});
 	});
+
+/*	$('#navbarCollapse').collapse({
+		toggle: false
+	});*/
+	
 })(jQuery, window, document);
 
 $(window, document, undefined).ready(function() {

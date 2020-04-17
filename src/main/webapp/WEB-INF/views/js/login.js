@@ -9,8 +9,7 @@ $('.ssoLogin').click(function(e){
 		url:$(this).attr('href'),
 	}).done(function(response){
 		popupWindow = window.open(response, "popupWindow", "width=600,height=600,scrollbars=yes");
-		//$('#modal').empty().html(response);
-		$('#signinupModal').modal('hide');
+		$('#loginRegModal').modal('hide');
 	}).fail(function(data){
 		console.log(data);
 		_this.closest('form').find('.errorSpan').empty().append(data).css('visibility','visible');
@@ -35,7 +34,7 @@ $('#loginForm').submit(function(e){
 	}).done(function(data) {
 		if(data.status=="OK"){
 			loginSuccess(data);
-			$('#signinupModal').modal('hide');
+			$('#loginRegModal').modal('hide');
 		}else{
 			_this.closest('form').find('.errorSpan').empty().append(data.value).css('visibility','visible');
 		}
@@ -60,7 +59,7 @@ $('#signupForm').submit(function(e){
 	}).done(function(data) {
 		if(data.status=="OK"){
 			loginSuccess(data);
-			$('#signinupModal').modal('hide');
+			$('#loginRegModal').modal('hide');
 		}else{
 			_this.closest('form').find('.errorSpan').empty().append(data.value).css('visibility','visible');
 		}
@@ -72,12 +71,12 @@ var loginSuccess = (authUserFrstLastName, source)=>{
 	if(source=='social'){
 		var opener = window.opener;
 		if(opener){
-			opener.$('#signinupModalGen').closest('li').addClass('hide');
+			opener.$('#logginRegModalGenerator').closest('li').addClass('hide');
 			opener.$('.user-toogle').removeClass('hide');
 			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);
 		}
 	}else{
-		$('#signinupModalGen').closest('li').addClass('hide');
+		$('#logginRegModalGenerator').closest('li').addClass('hide');
 		$('.user-toogle').removeClass('hide');
 		$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);		
 	}

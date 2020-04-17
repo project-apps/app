@@ -5,12 +5,14 @@
 <tiles-definitions>  
     <definition name="base.definition" template="/WEB-INF/views/tiles/layout/base-layout.jsp">  
         <put-attribute name="title" value="" />  
-        <put-attribute name="header" value="/WEB-INF/views/tiles/jsp/header.jsp" />  
+        <put-attribute name="header" value="/WEB-INF/views/tiles/jsp/header.jsp" />
+        <put-attribute name="topMenu" value="/WEB-INF/views/tiles/jsp/topMenu.jsp" />
+        <put-attribute name="leftMenu" value="/WEB-INF/views/tiles/jsp/leftMenu.jsp" />
         <put-attribute name="body" value="" />  
         <put-attribute name="footer" value="/WEB-INF/views/tiles/jsp/footer.jsp" />
         <put-attribute name="modal" value="" />    
     </definition>
-    <definition name="empty.definition" template="/WEB-INF/views/tiles/layout/empty-layout.jsp">  
+    <definition name="empty.definition" template="/WEB-INF/views/tiles/layout/empty-layout.jsp">
         <put-attribute name="body" value="" />  
     </definition>
       
@@ -18,8 +20,8 @@
         <put-attribute name="title" value="Home Manager" />  
         <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/home.jsp" />  
     </definition>
-    <definition name="signinup" extends="empty.definition">  
-        <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/signinup-modal.jsp" />  
+    <definition name="loginReg" extends="empty.definition">  
+        <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/loginRegModal.jsp" />  
     </definition>
     <definition name="closeSSOLoginWindow" extends="empty.definition">  
         <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/closeSSOLoginWindow.jsp" />  
