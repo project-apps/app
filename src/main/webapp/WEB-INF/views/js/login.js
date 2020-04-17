@@ -32,7 +32,7 @@ $('#loginForm').submit(function(e){
 		dataType: 'json',
 		data: JSON.stringify(formData),
 	}).done(function(data) {
-		if(data.status=="OK"){
+		if(data.status=="CREATED"){
 			loginSuccess(data);
 			$('#loginRegModal').modal('hide');
 		}else{
@@ -67,18 +67,18 @@ $('#signupForm').submit(function(e){
 		_this.closest('form').find('.errorSpan').empty().append(JSON.stringify(data)).css('visibility','visible');
 	});
 });
-var loginSuccess = (authUserFrstLastName, source)=>{
+var loginSuccess = (authUserFirstLastName, source)=>{
 	if(source=='social'){
 		var opener = window.opener;
 		if(opener){
 			opener.$('#logginRegModalGenerator').closest('li').addClass('hide');
 			opener.$('.user-toogle').removeClass('hide');
-			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);
+			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);
 		}
 	}else{
 		$('#logginRegModalGenerator').closest('li').addClass('hide');
 		$('.user-toogle').removeClass('hide');
-		$('li.user-toogle > a.dropdown-toggle').html(authUserFrstLastName);		
+		$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);		
 	}
 	
 }

@@ -9,6 +9,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="data-parser-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/data-parser/data-parser">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
                 
         <property name="context-root" value="app"/>
                 
