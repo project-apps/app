@@ -25,23 +25,12 @@
 			<tiles:insertAttribute name="topMenu" />
 		</div>
 	</nav> 
-	
-	<%-- <div class="container-fluid">
-		<div class="wrapper">
-			<tiles:insertAttribute name="leftMenu"/>
-		</div>
-		<div class="container">
-			<div id="content">
-				<tiles:insertAttribute name="body" />
-			</div>
-		</div>
-	</div> --%>
 	<div class="container-fluid">		
 		<div class="wrapper d-flex">
-				<nav id="sidebar">
-					<tiles:insertAttribute name="leftMenu"/>
-				</nav>
-				<div class="container">
+			<nav id="sidebar">
+				<tiles:insertAttribute name="leftMenu"/>
+			</nav>
+			<div class="container">
 				<div id="content">
 					<tiles:insertAttribute name="body" />
 				</div>

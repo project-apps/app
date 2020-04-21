@@ -1,17 +1,14 @@
 <%@ page session="true"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
-<!-- 	<div class="custom-menu">
-		<button type="button" id="sidebarCollapse" class="btn btn-primary">
-			<i class="fa fa-bars"></i> <span class="sr-only">Toggle Menu</span>
-		</button>
-	</div> -->
 		<h5>
-			<a href="index.html" class="logo">Menu Header</a>
+			<a href="index.html" class="logo">${menu}</a>
 		</h5>
 		<hr/>
-		<ul class="nav flex-column">
-		    <li class="nav-item">
+		
+	
+		<ul class="nav submenu-toogle flex-column overflow-auto">
+		  <!-- <li class="nav-item">
 		      <a class="nav-link" href="#">Link-1</a>
 		    </li>
 		    <li class="nav-item">
@@ -36,7 +33,7 @@
 		    </li>
 		    <li class="nav-item">
 		      <a class="nav-link disabled" href="#">Disabled</a>
-		    </li>
+		    </li> -->
 	  </ul>
 
 <!-- 		<div class="mb-5">
@@ -63,3 +60,29 @@
 				Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 			</p>
 		</div> -->
+<script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			url: '<c:url value="${menuUri}"/>',
+		}).done(function(data) {
+			if(data){
+				var children = data.children;
+				for(var i=0; i< children.length; i++){
+					var row = children[i];
+					var obj =  '<li class="nav-item"><a class="nav-link" href="#">'+JSON.stringify(row)+'</a></li>';
+					$('ul.submenu-toogle').append(obj);	
+				}
+			}else{
+			}
+		}).fail(function(data){
+		});
+	});
+	function parseSubMenu(data){
+		var children = data.children;
+		for(var i=0; i< children.length; i++){
+			var row = children[i];
+		}
+	}
+</script>
+

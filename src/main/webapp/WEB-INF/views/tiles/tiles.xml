@@ -26,4 +26,9 @@
     <definition name="closeSSOLoginWindow" extends="empty.definition">  
         <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/closeSSOLoginWindow.jsp" />  
     </definition>  
+    <definition name="course.home" extends="base.definition">  
+        <put-attribute name="title" value="Java" />  
+        <!-- <put-attribute name="leftMenu" value="/WEB-INF/views/tiles/jsp/leftMenu.jsp" /> -->
+        <put-attribute name="body" value="/WEB-INF/views/tiles/jsp/course/home.jsp" />
+    </definition>
 </tiles-definitions>  

@@ -73,12 +73,12 @@ var loginSuccess = (authUserFirstLastName, source)=>{
 		if(opener){
 			opener.$('#logginRegModalGenerator').closest('li').addClass('hide');
 			opener.$('.user-toogle').removeClass('hide');
-			opener.$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);
+			opener.$('div.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);
 		}
 	}else{
 		$('#logginRegModalGenerator').closest('li').addClass('hide');
 		$('.user-toogle').removeClass('hide');
-		$('li.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);		
+		$('div.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);		
 	}
 	
 }
