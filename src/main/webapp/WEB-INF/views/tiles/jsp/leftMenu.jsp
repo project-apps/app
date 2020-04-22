@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 		<h5>
-			<a href="index.html" class="logo">${menu}</a>
+			<a href="${menu}/index.html" class="logo">${menu}</a>
 		</h5>
 		<hr/>
 		
@@ -62,27 +62,31 @@
 		</div> -->
 <script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+	var rootPath;
 	$(function() {
 		$.ajax({
 			url: '<c:url value="${menuUri}"/>',
 		}).done(function(data) {
+			rootPath = data.path;
 			if(data){
-				var children = data.children;
-				for(var i=0; i< children.length; i++){
-					var row = children[i];
-					var obj =  '<li class="nav-item"><a class="nav-link" href="#">'+JSON.stringify(row)+'</a></li>';
-					$('ul.submenu-toogle').append(obj);	
-				}
+				parseSubmenu(data, $('ul.submenu-toogle'));
 			}else{
 			}
 		}).fail(function(data){
 		});
 	});
-	function parseSubMenu(data){
+	function parseSubmenu(data, dom){
 		var children = data.children;
 		for(var i=0; i< children.length; i++){
 			var row = children[i];
-			
+			if(row.type=='directory'){
+			dom.append('<li class="nav-item"><a class="nav-link" href="#">'+row.name+'</a></li>');
+				parseSubmenu(row, dom);
+			}else{
+				var absPath = row.path.replace(rootPath,'');
+				absPath = '<c:url value="${menu}"/>/'+absPath.substr(1, absPath.length).split('/').join('-');
+				dom.append('<li class="nav-item"><a class="nav-link" href="'+absPath+'">'+row.name+'</a></li>');
+			}
 		}
 	}
 </script>
