@@ -27,13 +27,8 @@
 	</nav> 
 	<div class="container-fluid">		
 		<div class="wrapper d-flex">
-			<nav id="sidebar">
-				<tiles:insertAttribute name="leftMenu"/>
-			</nav>
 			<div class="container">
-			
 				<div id="content">
-					
 					<tiles:insertAttribute name="body" />
 				</div>
 			</div>
@@ -43,7 +38,8 @@
 	 
 	<div style="clear:both">
 		<tiles:insertAttribute name="footer" />
-	</div>
+	</div>    
+	   
 <div class="alert text-center cookiealert" role="alert">
     <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
     <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">

@@ -29,7 +29,8 @@ public class RestTemplateURIExchange extends AbstractGenericController {
 	}
 	public String exchange(URI targetUri) throws RestClientException, MalformedURLException {
 		//restTemplate.setMessageConverters(httpMessageConverter);
-        HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+        logger.info("Invoking restTemplate with targetUrl: "+targetUri);
+		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
         ResponseEntity<String> responseEntity = restTemplate.exchange(targetUri.toURL().toString(), HttpMethod.GET, entity, String.class);
         String result = responseEntity.getBody();
         return result;

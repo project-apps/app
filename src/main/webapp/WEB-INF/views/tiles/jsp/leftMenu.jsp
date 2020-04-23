@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 		<h5>
-			<a href="${menu}/index.html" class="logo">${menu}</a>
+			<a href="${requestScope.course}/index.html" class="logo">${requestScope.course}</a>
 		</h5>
 		<hr/>
 		
@@ -35,7 +35,11 @@
 		      <a class="nav-link disabled" href="#">Disabled</a>
 		    </li> -->
 	  </ul>
-
+<div class="text-center spinner">
+  <div class="spinner-border text-dark" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <!-- 		<div class="mb-5">
 			<h3 class="h6 mb-3">Subscribe for newsletter</h3>
 			<form action="#" class="subscribe-form">
@@ -65,8 +69,9 @@
 	var rootPath;
 	$(function() {
 		$.ajax({
-			url: '<c:url value="${menuUri}"/>',
+			url: '<c:url value="/course/index/${requestScope.course}"/>',
 		}).done(function(data) {
+			$('div.spinner').hide()
 			rootPath = data.path;
 			if(data){
 				parseSubmenu(data, $('ul.submenu-toogle'));
@@ -83,9 +88,9 @@
 			dom.append('<li class="nav-item"><a class="nav-link" href="#">'+row.name+'</a></li>');
 				parseSubmenu(row, dom);
 			}else{
-				var absPath = row.path.replace(rootPath,'');
-				absPath = '<c:url value="${menu}"/>/'+absPath.substr(1, absPath.length).split('/').join('-');
-				dom.append('<li class="nav-item"><a class="nav-link" href="'+absPath+'">'+row.name+'</a></li>');
+				var uri = row.path.replace(rootPath,'');
+				uri = '<c:url value="/course/${requestScope.course}"/>/'+uri.substr(1, uri.length).split('/').join('-');
+				dom.append('<li class="nav-item"><a class="nav-link" href="'+uri+'">'+row.name+'</a></li>');
 			}
 		}
 	}

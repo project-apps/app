@@ -8,7 +8,7 @@
 <!-- </form> -->
 <div class="collapse navbar-collapse" id="navbarCollapse">
 	<div class="navbar-nav">
-        <a href="#" class="nav-item nav-link active">Home</a>
+        <a href="${pageContext.request.contextPath}/home" class="nav-item nav-link active">Home</a>
         <a href="${pageContext.request.contextPath}/course/java" class="nav-item nav-link">Java</a>
         <a href="${pageContext.request.contextPath}/course/nodejs" class="nav-item nav-link">NodeJS</a>
         <a href="#" class="nav-item nav-link">About</a>
