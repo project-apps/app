@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.parser.model.AuthUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,15 +34,7 @@ import com.app.entity.dto.UserDto;
 public class UserController extends AbstractGenericController {
 	@Autowired
 	RestTemplate restTemplate;
-
-	@GetMapping(path = { "/loginReg" })
-	public ModelAndView showSigninupForm(HttpServletRequest request, Model model) {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject(new UserDto());
-		mv.setViewName("loginReg");
-		return mv;
-	}
-
+	
 	@GetMapping(path = { "/signup" })
 	public ModelAndView showSignupForm(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
@@ -51,7 +42,6 @@ public class UserController extends AbstractGenericController {
 		mv.setViewName("signup");
 		return mv;
 	}
-
 	@PostMapping
 	public JSONResponse addUser(@RequestBody AuthUser user, HttpServletResponse response, HttpSession session) throws URISyntaxException {
 		JSONResponse jsonResponse = new JSONResponse();

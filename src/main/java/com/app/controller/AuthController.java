@@ -1,6 +1,8 @@
 package com.app.controller;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.URI;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,30 +21,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.app.entity.dto.AppProperties;
 import com.app.entity.dto.JSONResponse;
 import com.app.entity.dto.UserDto;
 
 @RestController
-@RequestMapping("/login")
-public class LoginController extends AbstractGenericController {
-	
-	@GetMapping(path = { "/oauth2/{provider}" })
-	public String getLoginURL(@PathVariable(required = true) String provider, @RequestBody(required = false) UserDto user) {
-		StringBuffer targetUrl = new StringBuffer();
+@RequestMapping("/auth")
+public class AuthController extends AbstractGenericController {
+
+	@GetMapping(path = { "/login/{provider}" })
+	public String getLoginURL(@PathVariable(required = true) String provider, @RequestBody(required = false) UserDto user, HttpServletRequest request) {
+		String targetUri = null;
 		try {
-			targetUrl.append(getPropValue(API_GATEWAY_HOST)).append("/authservice/oauth2/authorization/").append(provider);
+			StringBuffer url = new StringBuffer();//"http://localhost:8080/app/login/callback"
+			url.append(request.getScheme()).append("://").append(request.getServerName());
+			int serverPort = request.getServerPort();
+			if (serverPort != 80 && serverPort != 443) {
+				url.append(":").append(serverPort);
+			}
+			url.append(request.getContextPath()).append("/auth/login/callback");
+			//targetUrl.append(getPropValue(API_GATEWAY_HOST)).append("/authservice/oauth2/authorization/").append(provider);
+			targetUri= UriComponentsBuilder.fromUriString(getPropValue(API_GATEWAY_HOST))
+					.path("/authservice/oauth2/authorization/").path(provider)
+					.queryParam("callback", url).build().toUri().toString();
 		} catch (IOException e) { logger.error(e.getMessage()); }
-		return targetUrl.toString();
+		return targetUri;
 	}
 
-	@GetMapping(path = {"/callback/{encUser}"})
+	@GetMapping(path = {"/login/callback/{encUser}"})
 	public ModelAndView login(@PathVariable String encUser, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		AuthUser user = Base64Parser.deserialize(encUser, AuthUser.class);
-		
-		
+
+
 		session.setAttribute(AppProperties.AUTH_USER.value(), user);
 		logger.trace("Parsed user: "+user);
 		mv.addObject(AppProperties.AUTH_USER_FIRST_LAST_NAME.value(), user.getName());
@@ -80,5 +93,5 @@ public class LoginController extends AbstractGenericController {
 		}
 		return jsonResponse;
 	}
-	
+
 }

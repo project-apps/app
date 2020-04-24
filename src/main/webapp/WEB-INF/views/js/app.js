@@ -17,8 +17,8 @@ if (!jQuery) {throw new TypeError("jQuery is required.");};
 		$.ajax({
 			url:$(this).attr('href'),
 		}).done(function(response){
-			$('#modal').empty().html(response);
-			$('#loginRegModal').modal('show');
+			$('.modal-container').html(response);
+			$('.loginRegModal').modal('show');
 		}).fail(function(data){
 			console.log(data);
 		});
@@ -41,7 +41,7 @@ $(window, document, undefined).ready(function() {
 	  });
 	  
 	});
-$('#login').on('click' , function(){
+/*$('#login').on('click' , function(){
     $('#tab1').addClass('login-shadow');
    $('#tab2').removeClass('signup-shadow');
 });
@@ -52,5 +52,5 @@ $('#tab2').on('click' , function(){
 
 
 });
-
+*/
 

@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.HttpClientErrorException;
@@ -16,6 +17,7 @@ import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.app.entity.dto.AppProperties;
+import com.app.entity.dto.UserDto;
 
 @Controller
 @RequestMapping(path="/")
@@ -26,6 +28,14 @@ public class HomeController extends AbstractGenericController {
 		ModelAndView mv = new ModelAndView("home"); 
 		return mv;
 	}
+	@GetMapping(path = { "/loginReg" })
+	public ModelAndView showSigninupForm(HttpServletRequest request, Model model) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject(new UserDto());
+		mv.setViewName("loginReg");
+		return mv;
+	}
+
 	@GetMapping(path= {"/error"})
 	public ModelAndView error() {
 		ModelAndView mv = new ModelAndView("error"); 

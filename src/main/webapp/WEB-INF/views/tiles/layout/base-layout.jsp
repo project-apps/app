@@ -39,7 +39,7 @@
 			</div>
 	    </div>
     </div>
-	<div id="modal"></div>  
+	<div class="modal-container"></div>  
 	 
 	<div style="clear:both">
 		<tiles:insertAttribute name="footer" />

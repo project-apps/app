@@ -21,7 +21,7 @@
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${sessionScope.authuser.name}</a>
 			</c:when>
 			<c:otherwise>
-				<li><a href="${pageContext.request.contextPath}/user/loginReg" id="logginRegModalGenerator" data-toggle="modal"class="nav-item nav-link" >Login|Register </a></li>
+				<li><a href="${pageContext.request.contextPath}/loginReg" id="logginRegModalGenerator" data-toggle="modal"class="nav-item nav-link" >Login|Register </a></li>
 				<div class="nav-item dropdown user-toogle hide">
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 			</c:otherwise>

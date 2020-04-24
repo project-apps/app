@@ -8,8 +8,10 @@ $('.ssoLogin').click(function(e){
 	$.ajax({
 		url:$(this).attr('href'),
 	}).done(function(response){
-		popupWindow = window.open(response, "popupWindow", "width=600,height=600,scrollbars=yes");
-		$('#loginRegModal').modal('hide');
+		if(response){
+			popupWindow = window.open(response, "popupWindow", "width=600,height=600,scrollbars=yes");
+		}
+		
 	}).fail(function(data){
 		console.log(data);
 		_this.closest('form').find('.errorSpan').empty().append(data).css('visibility','visible');
@@ -71,11 +73,13 @@ var loginSuccess = (authUserFirstLastName, source)=>{
 	if(source=='social'){
 		var opener = window.opener;
 		if(opener){
+			opener.$('.loginRegModal').modal('toggle');
 			opener.$('#logginRegModalGenerator').closest('li').addClass('hide');
 			opener.$('.user-toogle').removeClass('hide');
 			opener.$('div.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);
 		}
 	}else{
+		$('.loginRegModal').modal('toggle');
 		$('#logginRegModalGenerator').closest('li').addClass('hide');
 		$('.user-toogle').removeClass('hide');
 		$('div.user-toogle > a.dropdown-toggle').html(authUserFirstLastName);		

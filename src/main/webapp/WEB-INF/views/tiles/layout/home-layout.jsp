@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/views/css/app.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/views/css/w3.css"> --%>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 </head>  
 <body>
@@ -34,7 +35,7 @@
 			</div>
 	    </div>
     </div>
-	<div id="modal"></div>  
+	<div class="modal-container"></div>  
 	 
 	<div style="clear:both">
 		<tiles:insertAttribute name="footer" />
