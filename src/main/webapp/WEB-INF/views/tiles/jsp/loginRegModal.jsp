@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%> <%@ page session="true"%> <%@ page isELIgnored="false"%>
-<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>    
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %> 
+<c:set var="contextpath" value="${pageContext.request.contextPath}"/>    
     
 <div class="modal fade loginRegModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog cascading-modal" role="document">
@@ -76,10 +77,10 @@
 			 </div>
 	      </div>
 	     <div class="modal-footer align-self-center">
-            <a href="${pageContext.request.contextPath}/auth/login/facebook" class="ssoLogin"><i class="fa fa-facebook"></i></a> 
-            <a href="${pageContext.request.contextPath}/auth/login/google" class="ssoLogin"><i class="fa fa-google-plus"></i></a> 
-            <a href="${pageContext.request.contextPath}/auth/login/twitter" class="ssoLogin"><i class="fa fa-twitter"></i></a>
-            <a href="${pageContext.request.contextPath}/auth/login/github" class="ssoLogin"><i class="fa fa-github"></i></a> 
+            <a href="${contextpath}/auth/login/facebook" class="ssoLogin"><i class="fa fa-facebook"></i></a> 
+            <a href="${contextpath}/auth/login/google" class="ssoLogin"><i class="fa fa-google-plus"></i></a> 
+            <a href="${contextpath}/auth/login/twitter" class="ssoLogin"><i class="fa fa-twitter"></i></a>
+            <a href="${contextpath}/auth/login/github" class="ssoLogin"><i class="fa fa-github"></i></a> 
 	      </div>
 	    </div>
   </div>
@@ -112,7 +113,7 @@
 	    </div>
   	</div>
 </div> -->
-<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
+<script src="${contextpath}/views/js/login.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
   $(".nav-tabs a").click(function(){

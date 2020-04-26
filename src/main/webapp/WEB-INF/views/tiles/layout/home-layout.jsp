@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="true"%> <%@ page isELIgnored="false"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>    
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%> 
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %> 
+<%-- <c:set var="contextpath" value="${pageContext.request.contextPath}"/> --%>
+<c:set var="contextpath" value="../"/>     
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    
 "http://www.w3.org/TR/html4/loose.dtd">    
 <html lang="en">    
@@ -9,10 +12,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 <title><tiles:insertAttribute name="title" ignore="true" /></title> 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="${contextpath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/views/css/app.css">
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/views/css/w3.css"> --%>
+<link rel="stylesheet" href="${contextpath}/views/css/app.css">
+<%-- <link rel="stylesheet" href="${contextpath}/views/css/w3.css"> --%>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 </head>  
 <body>
@@ -47,12 +50,12 @@
         I agree
     </button>
 </div> 	
-<script	src="${pageContext.request.contextPath}/views/js/jquery-3.4.1.min.js"></script>
+<script	src="${contextpath}/views/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="${pageContext.request.contextPath}/views/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/views/js/app.js" type="text/javascript"></script>
-<%-- <script src="${pageContext.request.contextPath}/views/js/main.js" type="text/javascript"></script> --%>
-<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
+<script src="${contextpath}/views/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="${contextpath}/views/js/app.js" type="text/javascript"></script>
+<%-- <script src="${contextpath}/views/js/main.js" type="text/javascript"></script> --%>
+<script src="${contextpath}/views/js/login.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 </body>    
 </html>    

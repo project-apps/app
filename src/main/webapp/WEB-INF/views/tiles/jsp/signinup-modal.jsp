@@ -1,4 +1,6 @@
 <%@ page session="true"%> <%@ page isELIgnored="false"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %> 
+<c:set var="contextpath" value="${pageContext.request.contextPath}"/> 
 <body>
 <!-- ------- LOGIN ------- -->
 <!-- Modal -->
@@ -72,10 +74,10 @@
             </fieldset>
           </form>
 <div class="social-line"> 
-            <a href="${pageContext.request.contextPath}/login/oauth2/facebook" class="ssoLogin"><i class="fa fa-facebook"></i></a> 
-            <a href="${pageContext.request.contextPath}/login/oauth2/google" class="ssoLogin"><i class="fa fa-google-plus"></i></a> 
-            <a href="${pageContext.request.contextPath}/login/oauth2/twitter" class="ssoLogin"><i class="fa fa-twitter"></i></a>
-            <a href="${pageContext.request.contextPath}/login/oauth2/github" class="ssoLogin" data-toggle="modal"><i class="fa fa-github"></i></a> 
+            <a href="${contextpath}/login/oauth2/facebook" class="ssoLogin"><i class="fa fa-facebook"></i></a> 
+            <a href="${contextpath}/login/oauth2/google" class="ssoLogin"><i class="fa fa-google-plus"></i></a> 
+            <a href="${contextpath}/login/oauth2/twitter" class="ssoLogin"><i class="fa fa-twitter"></i></a>
+            <a href="${contextpath}/login/oauth2/github" class="ssoLogin" data-toggle="modal"><i class="fa fa-github"></i></a> 
 </div>
       </div>
     </div>
@@ -115,6 +117,6 @@
   </div>
 </div>
 <!-- ------- LOGIN Ends ------- -->
-<script src="${pageContext.request.contextPath}/views/js/app.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/views/js/login.js" type="text/javascript"></script>
+<script src="${contextpath}/views/js/app.js" type="text/javascript"></script>
+<script src="${contextpath}/views/js/login.js" type="text/javascript"></script>
 </body>
