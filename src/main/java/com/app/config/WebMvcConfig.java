@@ -21,7 +21,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Bean
 	public TilesConfigurer tilesConfigurer() {
 		TilesConfigurer tilesConfigurer = new TilesConfigurer();
-		tilesConfigurer.setDefinitions(new String[] { "/WEB-INF/views/**/tiles.xml" });
+		tilesConfigurer.setDefinitions(new String[] { "/views/**/tiles.xml" });
 		tilesConfigurer.setCheckRefresh(true);
 
 		return tilesConfigurer;
@@ -35,7 +35,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/views/**").addResourceLocations("/", "/WEB-INF/views/").setCachePeriod(31556926);
+		registry.addResourceHandler("/views/**").addResourceLocations("/", "/views/").setCachePeriod(31556926);
 	}
 
 	@Override

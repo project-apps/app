@@ -3,8 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%> 
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %> 
-<%-- <c:set var="contextpath" value="${pageContext.request.contextPath}"/> --%>
-<c:set var="contextpath" value="../"/>     
+<c:set var="contextpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    
 "http://www.w3.org/TR/html4/loose.dtd">    
 <html lang="en">    
@@ -15,7 +14,6 @@
 <link rel="stylesheet" href="${contextpath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${contextpath}/views/css/app.css">
-<%-- <link rel="stylesheet" href="${contextpath}/views/css/w3.css"> --%>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 </head>  
 <body>
@@ -31,8 +29,13 @@
 	</nav> 
 	<div class="container-fluid">		
 		<div class="wrapper d-flex">
+			<nav id="sidebar">
+				<tiles:insertAttribute name="leftMenu"/>
+			</nav>
 			<div class="container">
+			
 				<div id="content">
+					
 					<tiles:insertAttribute name="body" />
 				</div>
 			</div>
@@ -42,8 +45,7 @@
 	 
 	<div style="clear:both">
 		<tiles:insertAttribute name="footer" />
-	</div>    
-	   
+	</div>
 <div class="alert text-center cookiealert" role="alert">
     <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
     <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
