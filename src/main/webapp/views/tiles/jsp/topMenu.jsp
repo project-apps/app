@@ -1,6 +1,6 @@
  <%@ page session="true"%> <%@ page isELIgnored="false"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
-<c:set var="contextpath" value="${pageContext.request.contextPath}"/> 
+<c:set var="contextpath" value="${pageContext.request.contextPath}"/>
 <!-- <form class="form-group mb-0"> -->
 <input type="text" placeholder="Search">
 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
@@ -9,9 +9,9 @@
 <!-- </form> -->
 <div class="collapse navbar-collapse" id="navbarCollapse">
 	<div class="navbar-nav">
-        <a href="${contextpath}/home" class="nav-item nav-link active">Home</a>
-        <a href="${contextpath}/course/java" class="nav-item nav-link">Java</a>
-        <a href="${contextpath}/course/nodejs" class="nav-item nav-link">NodeJS</a>
+        <a href="<c:url value='/home'/>" class="nav-item nav-link active">Home</a>
+        <a href="<c:url value='/course/java'/>" class="nav-item nav-link">Java</a>
+        <a href="<c:url value='/course/nodejs'/>" class="nav-item nav-link">NodeJS</a>
         <a href="#" class="nav-item nav-link">About</a>
         <a href="#" class="nav-item nav-link">Contact</a>
     </div>
@@ -22,7 +22,7 @@
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${sessionScope.authuser.name}</a>
 			</c:when>
 			<c:otherwise>
-				<li><a href="${contextpath}/loginReg" id="logginRegModalGenerator" data-toggle="modal"class="nav-item nav-link" >Login|Register </a></li>
+				<li><a href="<c:url value='/loginReg'/>" id="logginRegModalGenerator" data-toggle="modal"class="nav-item nav-link" >Login|Register </a></li>
 				<div class="nav-item dropdown user-toogle hide">
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 			</c:otherwise>

@@ -11,9 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 <title><tiles:insertAttribute name="title" ignore="true" /></title> 
-<link rel="stylesheet" href="${contextpath}/views/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="<c:url value='/views/bootstrap/4.4.1/css/bootstrap.min.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="${contextpath}/views/css/app.css">
+<link rel="stylesheet" href="<c:url value='/views/css/app.css'/>">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 </head>  
 <body>
@@ -52,12 +52,12 @@
         I agree
     </button>
 </div> 	
-<script	src="${contextpath}/views/js/jquery-3.4.1.min.js"></script>
+<script	type="text/javascript" src="<c:url value='/views/js/jquery-3.4.1.min.js'/>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="${contextpath}/views/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="${contextpath}/views/js/app.js" type="text/javascript"></script>
+<script type="text/javascript" src="<c:url value='/views/bootstrap/4.4.1/js/bootstrap.min.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/views/js/app.js'/>"></script>
 <%-- <script src="${contextpath}/views/js/main.js" type="text/javascript"></script> --%>
-<script src="${contextpath}/views/js/login.js" type="text/javascript"></script>
+<script type="text/javascript" src="<c:url value='/views/js/login.js'/>"></script>
 <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 </body>    
 </html>    

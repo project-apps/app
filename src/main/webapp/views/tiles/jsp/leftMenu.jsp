@@ -1,7 +1,7 @@
 <%@ page session="true"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
-<c:set var="contextpath" value="${pageContext.request.contextPath}"/> 
+<c:set var="contextpath" value="${pageContext.request.contextPath}"/>
 		<h5>
 			<a href="${requestScope.course}/index.html" class="logo">${requestScope.course}</a>
 		</h5>
@@ -65,7 +65,7 @@
 				Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 			</p>
 		</div> -->
-<script	src="${contextpath}/views/js/jquery-3.4.1.min.js"></script>
+<script	type="text/javascript" src="<c:url value='/views/js/jquery-3.4.1.min.js'/>"></script>
 <script type="text/javascript">
 	var rootPath;
 	$(function() {
