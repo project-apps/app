@@ -1,8 +1,6 @@
 package com.app.controller;
 
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.URI;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,11 +51,16 @@ public class AuthController extends AbstractGenericController {
 	@GetMapping(path = {"/login/callback/{encUser}"})
 	public ModelAndView login(@PathVariable String encUser, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		AuthUser user = (AuthUser)request.getAttribute("user");//Base64Parser.deserialize(encUser, AuthUser.class);
-		session.setAttribute(AppProperties.AUTH_USER.value(), user);
-		logger.trace("Parsed user: "+user);
-		mv.addObject(AppProperties.AUTH_USER_FIRST_LAST_NAME.value(), user.getName());
-		mv.setViewName("closeSSOLoginWindow");
+		logger.debug("In the callback method.");
+		try {
+			AuthUser user = Base64Parser.jsonDeserializer(Base64Parser.decodeToString(encUser), AuthUser.class);
+			session.setAttribute(AppProperties.AUTH_USER.value(), user);
+			logger.trace("Parsed user: "+user);
+			mv.addObject(AppProperties.AUTH_USER_FIRST_LAST_NAME.value(), user.getName());
+			mv.setViewName("closeSSOLoginWindow");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		return mv;
 
 	}

@@ -5,7 +5,7 @@ server:
 logging:
    level:
       root: INFO
-      com.auth: TRACE
+      com.app: TRACE
       org.springframework.web: INFO
       org.springframework.security: INFO
  
